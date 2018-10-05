@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require "grafana-beacon"
+require "gbeacon"
 
 require "irb"
 IRB.start(__FILE__)

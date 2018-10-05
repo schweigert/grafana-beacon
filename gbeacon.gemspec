@@ -1,11 +1,11 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "grafana/beacon/version"
+require "gbeacon/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "grafana-beacon"
-  spec.version       = Grafana::Beacon::VERSION
+  spec.name          = "gbeacon"
+  spec.version       = GrafanaBeacon::VERSION
   spec.authors       = ["Marlon Henry Schweigert"]
   spec.email         = ["fleyhe0@gmail.com"]
 
@@ -20,8 +20,8 @@ Gem::Specification.new do |spec|
   spec.files         = Dir.chdir(File.expand_path('..', __FILE__)) do
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   end
-  spec.bindir        = "exe"
-  spec.executables   = ["cmd/beacon.rb"]
+  spec.bindir        = "cmd"
+  spec.executables   = ["beacon.rb"]
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.16"
