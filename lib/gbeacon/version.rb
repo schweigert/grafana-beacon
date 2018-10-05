@@ -1,3 +1,3 @@
-module GrafanaBeacon
+module Gbeacon
   VERSION = "0.1.0"
 end
