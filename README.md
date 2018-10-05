@@ -1,6 +1,14 @@
 # grafana-beacon
 Full grafana client and service to monitor some resources
 
+just type:
+
+```
+  gem install gbeacon
+
+  gbeacon.rb --help
+```
+
 ## Linux
 
 Install docker && Docker Compose:
