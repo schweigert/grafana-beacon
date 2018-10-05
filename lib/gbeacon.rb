@@ -31,10 +31,54 @@ module Gbeacon
         'uw_bandtx' => Usagewatch.uw_bandtx,
         'uw_diskioreads' => Usagewatch.uw_diskioreads,
         'uw_diskiowrites' => Usagewatch.uw_diskiowrites,
-        'uw_cputop' => Usagewatch.uw_cputop,
-        'uw_memtop' => Usagewatch.uw_memtop,
-        'uw_httpconns' => Usagewatch.uw_httpconns
+        'uw_httpconns' => Usagewatch.uw_httpconns,
+        'total_memory_linux_monitor' => total_memory_linux_monitor,
+        'used_memory_linux_monitor' => used_memory_linux_monitor,
+        'total_swap_linux_monitor' => total_swap_linux_monitor,
+        'used_swap_linux_monitor' => used_swap_linux_monitor,
+        'free_memory_linux_monitor' => free_memory_linux_monitor,
+        'free_swap_linux_monitor' => free_swap_linux_monitor
       }
+    end
+
+    def total_memory_linux_monitor
+      free_mem.split("\n")[1].split(" ")[1]
+    rescue
+      '0'
+    end
+
+    def total_swap_linux_monitor
+      free_mem.split("\n")[2].split(" ")[1]
+    rescue
+      '0'
+    end
+
+    def used_memory_linux_monitor
+      free_mem.split("\n")[1].split(" ")[2]
+    rescue
+      '0'
+    end
+
+    def used_swap_linux_monitor
+      free_mem.split("\n")[2].split(" ")[2]
+    rescue
+      '0'
+    end
+
+    def free_memory_linux_monitor
+      free_mem.split("\n")[1].split(" ")[3]
+    rescue
+      '0'
+    end
+
+    def free_swap_linux_monitor
+      free_mem.split("\n")[2].split(" ")[3]
+    rescue
+      '0'
+    end
+
+    def free_mem
+      `free -m`
     end
   end
 end
